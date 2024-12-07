@@ -96,7 +96,7 @@ This file lists the necessary libraries without specific versions. Install them 
 
 ```bash
 pip install -r requirements.txt
-
+```
 
 ## Requirements
 
