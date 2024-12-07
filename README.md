@@ -109,7 +109,7 @@ pip install -r requirements.txt
   - `pickle`
 
 ### `requirements.txt`:
-```txt
+```bash
 opencv-python
 mediapipe
 scikit-learn
@@ -117,12 +117,13 @@ scikit-learn
 
 ## Directory Structure
 The project follows this directory structure:
-```
+```bash
 ASLSignDetect/
-├── scripts/              # Python scripts for training and testing
-│   ├── train_model.py    # Script to train the model
-│   ├── detect_asl.py     # Script for real-time detection
-│   └── evaluate_model.py # Script to evaluate model accuracy
-├── requirements.txt      # Required dependencies
-└── README.md             # This file
+├── Scripts/
+│   ├── collect_imgs.py        # Collect images of ASL signs
+│   ├── create_dataset.py      # Create a dataset from collected images
+│   ├── train_classifier.py    # Train the classifier
+│   ├── inference_classifier.py# Use the trained model for inference
+├── requirements.txt           # Required dependencies
+└── README.md                  # Project overview
 ```
