@@ -120,10 +120,10 @@ The project follows this directory structure:
 ```bash
 ASLSignDetect/
 ├── Scripts/
-│   ├── collect_imgs.py        # Collect images of ASL signs
-│   ├── create_dataset.py      # Create a dataset from collected images
-│   ├── train_classifier.py    # Train the classifier
-│   ├── inference_classifier.py# Use the trained model for inference
-├── requirements.txt           # Required dependencies
+│   ├── collect_imgs.py         # Collect images of ASL signs
+│   ├── create_dataset.py       # Create a dataset from collected images
+│   ├── train_classifier.py     # Train the classifier
+│   ├── inference_classifier.py # Use the trained model for inference
+├── requirements.txt            # Required dependencies
 └── README.md                  # Project overview
 ```
