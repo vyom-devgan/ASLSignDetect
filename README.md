@@ -37,26 +37,66 @@ You can use a pre-existing dataset of ASL hand signs or prepare your own. The da
 
 - For testing, you can download the ASL Alphabet dataset from [link to dataset].
 
-### 4. Train the Model
-To train the model, run the following Python script:
-```bash
-python train_model.py
-```
-This will process the dataset, train the Random Forest model, and save the trained model to a file for later use.
+### 4. Steps to use
 
-### 5. Run the ASL Detection
-To run the detection system, use:
-```bash
-python detect_asl.py
-```
-This will start the camera, and the system will display the predicted letter for any ASL hand sign it detects.
+1. **Run `collect_imgs.py`**  
+   Collect images for each ASL letter by following the instructions within the script. The images will be saved in respective folders for each letter.
 
-### 6. Evaluate the Model
-Once the model is trained, you can evaluate its performance using the following command:
+2. **Run `create_dataset.py`**  
+   Create a dataset by labeling and organizing the collected images for training.
+
+3. **Run `train_classifier.py`**  
+   Train the classifier using the labeled dataset. This will output a trained model that can recognize ASL signs.
+
+4. **Run `inference_classifier.py`**  
+   Use the trained classifier to detect and recognize ASL signs in real-time.
+
+### Special Keys in `inference_classifier.py`
+
+While using `inference_classifier.py`, there are special keys you can press for different actions:
+
+- **'Q'**: Quit the application.
+- **'SPACEBAR'**: Save the current letter being detected.
+- **'S'**: Save the current word. This is saved to `saved_word.txt` but will overwrite the previous word.
+- **'R'**: Reset the current word (clear the current word being built).
+
+## Example of Running the Scripts
+
+1. **Collect Images for Each Letter**:
+    Run the `collect_imgs.py` script and follow the prompts to collect images for each ASL letter.
+
+    ```bash
+    python Scripts/collect_imgs.py
+    ```
+
+2. **Create Dataset**:
+    Once the images are collected, run the `create_dataset.py` script to create the dataset.
+
+    ```bash
+    python Scripts/create_dataset.py
+    ```
+
+3. **Train the Classifier**:
+    After the dataset is prepared, train the classifier with the following command:
+
+    ```bash
+    python Scripts/train_classifier.py
+    ```
+
+4. **Inference (Real-Time Prediction)**:
+    Once the model is trained, run the `inference_classifier.py` to start recognizing ASL signs in real-time.
+
+    ```bash
+    python Scripts/inference_classifier.py
+    ```
+
+## requirements.txt
+
+This file lists the necessary libraries without specific versions. Install them using:
+
 ```bash
-python evaluate_model.py
-```
-This will display the accuracy of the model on a test set.
+pip install -r requirements.txt
+
 
 ## Requirements
 
@@ -70,19 +110,15 @@ This will display the accuracy of the model on a test set.
 
 ### `requirements.txt`:
 ```txt
-numpy==1.21.0
-scikit-learn==0.24.2
-opencv-python==4.5.1.48
-matplotlib==3.4.2
-pickle-mixin==1.0.2
+opencv-python
+mediapipe
+scikit-learn
 ```
 
 ## Directory Structure
 The project follows this directory structure:
 ```
 ASLSignDetect/
-├── data/                 # Dataset folder (e.g., ASL alphabet images)
-├── model/                # Trained model file
 ├── scripts/              # Python scripts for training and testing
 │   ├── train_model.py    # Script to train the model
 │   ├── detect_asl.py     # Script for real-time detection
@@ -90,16 +126,3 @@ ASLSignDetect/
 ├── requirements.txt      # Required dependencies
 └── README.md             # This file
 ```
-
-## Future Enhancements
-- **Real-time Webcam Integration**: Integrate with live webcam feeds for real-time sign language recognition.
-- **Deep Learning Models**: Explore deep learning models such as Convolutional Neural Networks (CNNs) for improved accuracy.
-- **Multi-sign Recognition**: Extend the model to recognize sequences of signs for word or sentence-level recognition.
-- **Mobile App**: Create a mobile app for both iOS and Android that can use the trained model for ASL recognition on mobile devices.
-
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-If you have any questions or suggestions, feel free to open an issue or contribute to the project.
