@@ -125,5 +125,5 @@ ASLSignDetect/
 │   ├── train_classifier.py     # Train the classifier
 │   ├── inference_classifier.py # Use the trained model for inference
 ├── requirements.txt            # Required dependencies
-└── README.md                  # Project overview
+└── README.md                   # Project overview
 ```
